@@ -27,7 +27,11 @@ for k=1:Nd
     end
 
     % Wn(r) is the normalized activation degree
-    Wn=W/sum(W);
+    if sum(W)==0
+        Wn=W;
+    else
+        Wn=W/sum(W);
+    end
     
     % Now we evaluate the consequences
     yr=g*[1 ;X(k,:)'];  
